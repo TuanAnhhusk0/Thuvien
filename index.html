@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Trao sách – Gửi yêu thương</title>
+<meta name="description" content="Đăng ký ủng hộ sách cho thư viện trường THPT Lương Thế Vinh – dự án Dấu ấn tuổi 18.">
+<meta name="theme-color" content="#1d4ed8">
+<link rel="icon" href="logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--pri:#2563eb;--pri2:#06b6d4;--hong:#ec4899;--cam:#f97316;--xanh:#16a34a;--ink:#1e293b;--muted:#64748b;--line:#e2e8f0;--bg:#f2f5fb}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Be Vietnam Pro",system-ui,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--ink);font-size:16px;line-height:1.55}
+  .hero{background:linear-gradient(135deg,#1d4ed8,#06b6d4 60%,#22c55e);color:#fff;padding:26px 16px 70px;text-align:center}
+  .hero img{width:74px;height:74px;border-radius:50%;background:#fff;padding:3px;box-shadow:0 4px 14px rgba(0,0,0,.2)}
+  .hero small{display:block;letter-spacing:.5px;opacity:.9;font-weight:600;margin-top:8px}
+  .hero h1{margin:6px 0 6px;font-size:clamp(26px,6vw,40px);line-height:1.2}
+  .hero p{max-width:640px;margin:0 auto;opacity:.95}
+  .wrap{max-width:760px;margin:-50px auto 40px;padding:0 14px}
+  .card{background:#fff;border-radius:20px;box-shadow:0 6px 24px rgba(30,41,59,.08);padding:20px;margin-bottom:16px}
+  h2{font-size:19px;margin:0 0 12px;display:flex;align-items:center;gap:8px}
+  h2 .so{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:15px;flex:none}
+  label{display:block;font-weight:600;font-size:14px;margin:10px 0 4px}
+  label .tuy{font-weight:400;color:var(--muted)}
+  input,select,textarea{width:100%;font:inherit;border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;background:#fff;color:inherit;outline:none}
+  input:focus,select:focus,textarea:focus{border-color:var(--pri);box-shadow:0 0 0 3px rgba(37,99,235,.12)}
+  textarea{min-height:96px;resize:vertical}
+  .g2{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chips label{margin:0;font-weight:500;border:1.5px solid var(--line);border-radius:999px;padding:7px 14px;cursor:pointer;background:#fff}
+  .chips input{display:none}
+  .chips label:has(input:checked){background:var(--pri);border-color:var(--pri);color:#fff}
+  .sach{border:1.5px dashed var(--line);border-radius:16px;padding:10px 12px 12px;margin-bottom:10px;position:relative;background:#fafcff}
+  .sach .g3{display:grid;grid-template-columns:2fr 1.3fr 1.1fr 70px;gap:8px}
+  .sach label{margin-top:4px}
+  .xoa{position:absolute;top:6px;right:8px;border:0;background:#fee2e2;color:#b91c1c;border-radius:8px;width:28px;height:28px;cursor:pointer}
+  .btn{border:0;border-radius:14px;padding:12px 18px;font:inherit;font-weight:700;cursor:pointer;background:var(--pri);color:#fff}
+  .btn.sec{background:#e8efff;color:#1d4ed8}
+  .btn.to{width:100%;font-size:18px;padding:15px;background:linear-gradient(90deg,#ec4899,#f97316)}
+  .btn:disabled{opacity:.6}
+  .goi-y{font-size:13px;color:var(--muted)}
+  .dem{float:right;font-weight:400;color:var(--muted)}
+  /* xem trước nhãn */
+  .nhan{border:2px solid #1d4ed8;border-radius:16px;padding:14px;display:flex;gap:12px;align-items:stretch;background:linear-gradient(135deg,#fff,#f0f7ff)}
+  .nhan .trai{flex:1;min-width:0}
+  .nhan .dau{display:flex;gap:8px;align-items:center;font-size:12px;font-weight:700;color:#1d4ed8;text-transform:uppercase}
+  .nhan .dau img{width:30px;height:30px}
+  .nhan .ten{font-size:17px;font-weight:800;margin:6px 0 2px;color:#be185d}
+  .nhan .loi{font-style:italic;font-size:14px;white-space:pre-wrap;word-wrap:break-word}
+  .nhan .qr{width:82px;flex:none;border:1.5px dashed #94a3b8;border-radius:10px;display:grid;place-items:center;font-size:11px;color:var(--muted);text-align:center}
+  .msg{padding:12px 14px;border-radius:12px;margin:10px 0;font-weight:500}
+  .msg.bad{background:#fee2e2;color:#7f1d1d}
+  .msg.warn{background:#fef3c7;color:#78350f}
+  .cam-on{text-align:center}
+  .cam-on .ma{font-size:28px;font-weight:800;color:#1d4ed8;letter-spacing:1px;background:#eef2ff;border-radius:14px;padding:8px 16px;display:inline-block;margin:6px 0}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  td,th{border-bottom:1px solid var(--line);padding:6px 4px;text-align:left;vertical-align:top}
+  footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 0 30px}
+  @media (max-width:560px){ .g2{grid-template-columns:1fr} .sach .g3{grid-template-columns:1fr 1fr} .sach .g3 .ten-sach{grid-column:1/-1} }
+</style>
+</head>
+<body>
+<header class="hero">
+  <img src="logo.png" alt="Logo THPT Lương Thế Vinh">
+  <small>THPT LƯƠNG THẾ VINH · DỰ ÁN “DẤU ẤN TUỔI 18 – KẾT NỐI &amp; ĐAM MÊ”</small>
+  <h1 id="tieuDe">Trao sách – Gửi yêu thương</h1>
+  <p id="moTa">Mỗi cuốn sách bạn trao là một hạt mầm cho thư viện trường. Hãy để lại vài dòng – lời trao gửi của bạn sẽ được in cùng mã QR và dán lên chính cuốn sách ấy, để người đọc sau luôn nhận được yêu thương.</p>
+</header>
+
+<main class="wrap" id="noiDung">
+  <div id="cheDoThu"></div>
+  <form id="phieu" novalidate>
+    <section class="card">
+      <h2><span class="so" style="background:#2563eb">1</span>Người ủng hộ</h2>
+      <label>Họ và tên *</label><input id="hoTen" required maxlength="60" autocomplete="name" placeholder="VD: Nguyễn Minh Anh">
+      <label>Bạn là</label>
+      <div class="chips" id="doiTuong">
+        <label><input type="radio" name="dt" value="Học sinh" checked>Học sinh</label>
+        <label><input type="radio" name="dt" value="Cựu học sinh">Cựu học sinh</label>
+        <label><input type="radio" name="dt" value="Phụ huynh">Phụ huynh</label>
+        <label><input type="radio" name="dt" value="Giáo viên">Thầy cô</label>
+        <label><input type="radio" name="dt" value="Khác">Khác</label>
+      </div>
+      <div class="g2">
+        <div><label>Lớp / khoá <span class="tuy">(nếu có)</span></label><input id="lop" maxlength="20" placeholder="VD: 12C1 hoặc K2020–2023"></div>
+        <div><label>Điện thoại / Zalo *</label><input id="sdt" type="tel" required maxlength="15" inputmode="tel" placeholder="Để hẹn ngày nhận sách"></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2><span class="so" style="background:#16a34a">2</span>Sách bạn muốn trao</h2>
+      <div id="dsSach"></div>
+      <button type="button" class="btn sec" id="themSach">＋ Thêm một đầu sách</button>
+      <p class="goi-y">Nhiều cuốn giống nhau thì ghi một dòng và điền số lượng. Sách giáo khoa cũ còn dùng được cũng rất quý!</p>
+    </section>
+
+    <section class="card">
+      <h2><span class="so" style="background:#f97316">3</span>Hẹn ngày nhận sách</h2>
+      <div class="g2">
+        <div><label>Ngày hẹn *</label><input id="ngayHen" type="date" required></div>
+        <div><label>Buổi</label><select id="buoi"><option>Sáng</option><option>Chiều</option><option>Giờ ra chơi</option><option>Lúc nào cũng được</option></select></div>
+      </div>
+      <label>Nhận sách ở đâu?</label>
+      <div class="chips" id="noiNhan">
+        <label><input type="radio" name="nn" value="Mang đến thư viện trường" checked>Em mang đến thư viện</label>
+        <label><input type="radio" name="nn" value="Nhờ đến lấy">Nhờ thầy cô / bạn đến lấy</label>
+      </div>
+      <div id="khungDiaChi" style="display:none"><label>Địa chỉ nhận sách</label><input id="diaChi" maxlength="120" placeholder="Số nhà, đường, phường…"></div>
+    </section>
+
+    <section class="card">
+      <h2><span class="so" style="background:#ec4899">4</span>Lời trao gửi yêu thương</h2>
+      <label>Lời nhắn gửi người đọc <span class="dem" id="demChu">0/160</span></label>
+      <textarea id="loiNhan" maxlength="160" placeholder="VD: Mong cuốn sách này tiếp thêm lửa cho em trên hành trình chinh phục ước mơ. Cố lên nhé!"></textarea>
+      <label style="font-weight:500"><input type="checkbox" id="hienTen" checked style="width:auto;margin-right:6px">Hiện tên tôi trên nhãn dán sách (bỏ chọn sẽ ghi “Một người bạn”)</label>
+      <p class="goi-y" style="margin-bottom:6px">Xem trước nhãn sẽ dán lên sách:</p>
+      <div class="nhan" id="xemNhan">
+        <div class="trai">
+          <div class="dau"><img src="logo.png" alt="">Thư viện THPT Lương Thế Vinh</div>
+          <div style="font-size:13px;margin-top:6px">Cuốn sách này được trao tặng bởi</div>
+          <div class="ten" id="nhanTen">…</div>
+          <div class="loi" id="nhanLoi">“Lời trao gửi của bạn sẽ hiện ở đây.”</div>
+        </div>
+        <div class="qr">Mã QR<br>do thư viện<br>in thêm</div>
+      </div>
+    </section>
+
+    <div id="loi"></div>
+    <button class="btn to" id="nutGui" type="submit">💌 Gửi đăng ký</button>
+    <p class="goi-y" style="text-align:center">Thông tin liên lạc chỉ dùng để hẹn nhận sách, không công khai.</p>
+  </form>
+</main>
+<footer>Thư viện trường THPT Lương Thế Vinh – Hải Phòng</footer>
+
+<script>
+/* ===== CẤU HÌNH: dán địa chỉ "Ứng dụng web" của Google Apps Script vào giữa hai dấu nháy =====
+   Để trống = CHẾ ĐỘ THỬ (lưu tạm trên máy này, xem/tải ở ?quanly=1). */
+const URL_GUI = "";
+
+const LOAI = ["Sách tham khảo", "Sách giáo khoa", "Truyện / văn học", "Sách kỹ năng sống", "Khoa học – khám phá", "Từ điển / tra cứu", "Báo – tạp chí", "Khác"];
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const iso = d => new Date(d.getTime() - d.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+const thamSo = new URLSearchParams(location.search);
+
+/* ---------- Chế độ XEM: mở từ mã QR dán trên sách ---------- */
+if (thamSo.get("xem")) {
+  const ten = thamSo.get("t") || "Một người bạn", loi = thamSo.get("l") || "", ma = thamSo.get("ma") || "", dk = thamSo.get("dk") || "";
+  document.title = "Lời trao gửi – " + ten;
+  $("#tieuDe").textContent = "Cuốn sách mang theo yêu thương";
+  $("#moTa").textContent = "Bạn vừa quét mã trên một cuốn sách được trao tặng cho thư viện trường.";
+  $("#noiDung").innerHTML = `<section class="card cam-on">
+      <div style="font-size:44px">📖💌</div>
+      <div style="color:var(--muted)">Cuốn sách này được trao tặng bởi</div>
+      <div style="font-size:26px;font-weight:800;color:#be185d;margin:4px 0">${esc(ten)}</div>
+      ${loi ? `<blockquote style="font-size:19px;font-style:italic;margin:14px auto;max-width:540px;line-height:1.6">“${esc(loi)}”</blockquote>` : ""}
+      <div class="goi-y">${dk ? "Mã sách: <b>" + esc(dk) + "</b>" : ""}${ma ? " · Mã ủng hộ: " + esc(ma) : ""}</div>
+      <p>Hãy đọc thật trân trọng và giữ gìn sách cẩn thận nhé! 🌱</p>
+      <a class="btn" href="${location.pathname}" style="display:inline-block;text-decoration:none">🎁 Tôi cũng muốn trao sách</a>
+    </section>`;
+} else if (thamSo.get("quanly")) {
+  /* ---------- Xem các đăng ký thử (chỉ ở chế độ thử) ---------- */
+  const ds = docThu();
+  $("#noiDung").innerHTML = `<section class="card"><h2>🧪 Đăng ký đã lưu thử trên máy này (${ds.length})</h2>
+    <p class="goi-y">Khi chưa nối Google Sheet, đăng ký được lưu tạm trong trình duyệt. Tải tệp CSV này để thử nhập vào app thư viện (mục Sách ủng hộ).</p>
+    <button class="btn" onclick="taiCSV()">⬇️ Tải CSV (giống tệp Google Sheet)</button> <button class="btn sec" onclick="if(confirm('Xoá hết đăng ký thử?')){localStorage.removeItem('uhs-thu');location.reload()}">Xoá dữ liệu thử</button>
+    <table style="margin-top:12px"><tr><th>Mã</th><th>Người ủng hộ</th><th>Sách</th><th>Hẹn</th></tr>
+    ${ds.map(d => `<tr><td>${esc(d.ma)}</td><td>${esc(d.hoTen)}<br><span class="goi-y">${esc(d.lop)} ${esc(d.sdt)}</span></td><td>${esc(tomTatSach(d.sach))}</td><td>${esc(d.ngayHen)}</td></tr>`).join("")}</table></section>`;
+} else {
+  khoiTaoPhieu();
+}
+
+function docThu(){ try { return JSON.parse(localStorage.getItem("uhs-thu") || "[]"); } catch (e) { return []; } }
+function tomTatSach(ds){ return ds.map(s => `${s.ten}${s.tacGia ? " – " + s.tacGia : ""} (${s.loai}) ×${s.soLuong}`).join("; "); }
+const COT = ["Thời gian","Mã ủng hộ","Họ tên","Đối tượng","Lớp","Điện thoại","Sách (chi tiết)","Danh sách sách","Tổng số cuốn","Ngày hẹn","Buổi","Nơi nhận","Địa chỉ","Lời trao gửi","Hiện tên trên nhãn"];
+function dongBang(d){ return [d.thoiGian, d.ma, d.hoTen, d.doiTuong, d.lop, d.sdt, JSON.stringify(d.sach), tomTatSach(d.sach), d.tongSo, d.ngayHen, d.buoi, d.noiNhan, d.diaChi, d.loiNhan, d.hienTen ? "Có" : "Không"]; }
+function taiCSV(){
+  const q = v => '"' + String(v ?? "").replace(/"/g, '""') + '"';
+  const csv = "﻿" + [COT, ...docThu().map(dongBang)].map(r => r.map(q).join(",")).join("\r\n");
+  const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([csv], { type:"text/csv;charset=utf-8" }));
+  a.download = "ung-ho-sach-thu.csv"; a.click();
+}
+
+function khoiTaoPhieu(){
+  if (!URL_GUI) $("#cheDoThu").innerHTML = `<div class="msg warn">🧪 <b>Chế độ thử</b>: trang chưa nối Google Sheet, đăng ký chỉ lưu trên máy này (<a href="?quanly=1">xem / tải</a>).</div>`;
+  const hn = new Date(); $("#ngayHen").min = iso(hn);
+  const mai = new Date(hn); mai.setDate(mai.getDate() + 1); $("#ngayHen").value = iso(mai);
+  themDong();
+  $("#themSach").onclick = () => themDong(true);
+  document.querySelectorAll("#noiNhan input").forEach(r => r.onchange = () => $("#khungDiaChi").style.display = r.value === "Nhờ đến lấy" && r.checked ? "" : "none");
+  ["#hoTen", "#loiNhan", "#hienTen", "#lop"].forEach(s => $(s).addEventListener("input", xemTruoc));
+  $("#hienTen").addEventListener("change", xemTruoc);
+  xemTruoc();
+  $("#phieu").onsubmit = gui;
+}
+function themDong(focus){
+  const d = document.createElement("div"); d.className = "sach";
+  d.innerHTML = `<button type="button" class="xoa" title="Bỏ dòng này">✕</button>
+    <div class="g3">
+      <div class="ten-sach"><label>Tên sách *</label><input class="s-ten" maxlength="120" placeholder="VD: Dế Mèn phiêu lưu ký"></div>
+      <div><label>Tác giả</label><input class="s-tg" maxlength="60" placeholder="VD: Tô Hoài"></div>
+      <div><label>Loại sách</label><select class="s-loai">${LOAI.map(l => `<option>${l}</option>`).join("")}</select></div>
+      <div><label>Số cuốn</label><input class="s-sl" type="number" min="1" max="200" value="1"></div>
+    </div>`;
+  d.querySelector(".xoa").onclick = () => { if (document.querySelectorAll(".sach").length > 1) d.remove(); };
+  $("#dsSach").appendChild(d);
+  if (focus) d.querySelector(".s-ten").focus();
+}
+function xemTruoc(){
+  const ten = $("#hoTen").value.trim(), lop = $("#lop").value.trim(), loi = $("#loiNhan").value.trim();
+  $("#demChu").textContent = $("#loiNhan").value.length + "/160";
+  $("#nhanTen").textContent = $("#hienTen").checked ? (ten ? ten + (lop ? " – " + lop : "") : "Tên của bạn") : "Một người bạn";
+  $("#nhanLoi").textContent = loi ? "“" + loi + "”" : "“Lời trao gửi của bạn sẽ hiện ở đây.”";
+}
+function maMoi(){
+  const d = new Date(), c = "ABCDEFGHJKMNPQRSTUVWXYZ23456789";
+  let r = ""; for (let i = 0; i < 4; i++) r += c[Math.floor(Math.random() * c.length)];
+  return "UH-" + String(d.getFullYear()).slice(2) + String(d.getMonth() + 1).padStart(2, "0") + String(d.getDate()).padStart(2, "0") + "-" + r;
+}
+async function gui(ev){
+  ev.preventDefault();
+  const loi = [];
+  const sach = [...document.querySelectorAll(".sach")].map(x => ({ ten:x.querySelector(".s-ten").value.trim(), tacGia:x.querySelector(".s-tg").value.trim(),
+    loai:x.querySelector(".s-loai").value, soLuong:Math.max(1, Math.min(200, +x.querySelector(".s-sl").value || 1)) })).filter(s => s.ten);
+  const hoTen = $("#hoTen").value.trim(), sdt = $("#sdt").value.replace(/[^\d+]/g, "");
+  if (!hoTen) loi.push("Bạn chưa điền họ tên.");
+  if (sdt.length < 9) loi.push("Số điện thoại / Zalo chưa đúng.");
+  if (!sach.length) loi.push("Hãy ghi ít nhất một cuốn sách.");
+  if (!$("#ngayHen").value) loi.push("Hãy chọn ngày hẹn nhận sách.");
+  if (loi.length) { $("#loi").innerHTML = `<div class="msg bad">${loi.map(esc).join("<br>")}</div>`; return; }
+  $("#loi").innerHTML = "";
+  const nn = document.querySelector("#noiNhan input:checked").value;
+  const d = { thoiGian:new Date().toLocaleString("vi-VN"), ma:maMoi(), hoTen, doiTuong:document.querySelector("#doiTuong input:checked").value,
+    lop:$("#lop").value.trim(), sdt, sach, tongSo:sach.reduce((a, s) => a + s.soLuong, 0), ngayHen:$("#ngayHen").value, buoi:$("#buoi").value,
+    noiNhan:nn, diaChi:nn === "Nhờ đến lấy" ? $("#diaChi").value.trim() : "", loiNhan:$("#loiNhan").value.trim(), hienTen:$("#hienTen").checked };
+  const nut = $("#nutGui"); nut.disabled = true; nut.textContent = "Đang gửi…";
+  try {
+    if (URL_GUI) await fetch(URL_GUI, { method:"POST", mode:"no-cors", body:new URLSearchParams({ duLieu:JSON.stringify(d) }) });
+    else { const ds = docThu(); ds.push(d); localStorage.setItem("uhs-thu", JSON.stringify(ds)); }
+    camOn(d);
+  } catch (e) {
+    $("#loi").innerHTML = `<div class="msg bad">Chưa gửi được (mất mạng?). Bạn thử lại sau ít phút nhé.</div>`;
+    nut.disabled = false; nut.textContent = "💌 Gửi đăng ký";
+  }
+}
+function camOn(d){
+  window.scrollTo(0, 0);
+  $("#noiDung").innerHTML = `<section class="card cam-on">
+    <div style="font-size:46px">🌱💌</div>
+    <h2 style="justify-content:center">Cảm ơn ${esc(d.hoTen)}!</h2>
+    <p>Thư viện đã nhận đăng ký <b>${d.tongSo} cuốn sách</b> của bạn. Mã ủng hộ của bạn:</p>
+    <div class="ma">${esc(d.ma)}</div>
+    <p>Hẹn gặp bạn <b>${esc(d.buoi.toLowerCase())} ngày ${esc(d.ngayHen.split("-").reverse().join("/"))}</b> – ${esc(d.noiNhan.toLowerCase())}.<br>Thầy cô sẽ liên hệ qua số <b>${esc(d.sdt)}</b> nếu cần đổi lịch.</p>
+    <p class="goi-y">Bạn có thể chụp màn hình này để lưu mã ủng hộ.</p>
+    <button class="btn sec" onclick="location.reload()">＋ Đăng ký thêm sách</button>
+  </section>`;
+}
+</script>
+</body>
+</html>

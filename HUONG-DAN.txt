@@ -1,0 +1,41 @@
+TRANG ĐĂNG KÝ ỦNG HỘ SÁCH – "TRAO SÁCH, GỬI YÊU THƯƠNG"
+========================================================
+
+Luồng làm việc:
+  Người ủng hộ điền trang web  →  dữ liệu vào Google Sheet của thầy
+  →  thầy tải Sheet về (.xlsx)  →  app Thư viện LTV, mục "🎁 Sách ủng hộ" → Nhập tệp
+  →  hôm nhận sách: bấm "Nhận sách" (sách vào kho, có số ĐKCB)  →  "In nhãn trao gửi" (lời nhắn + QR) dán lên sách.
+
+A. NỐI TRANG WEB VỚI GOOGLE SHEET (làm 1 lần, khoảng 5 phút)
+  1. Vào sheets.google.com → tạo bảng tính mới, đặt tên "Ủng hộ sách thư viện".
+  2. Menu Tiện ích mở rộng → Apps Script. Xoá hết chữ có sẵn, dán TOÀN BỘ nội dung tệp apps-script.gs → bấm 💾 Lưu.
+  3. Chọn hàm "chayThu" ở thanh trên → bấm ▶ Chạy → Cho phép quyền (chọn tài khoản → Nâng cao →
+     Đi tới dự án… → Cho phép). Trong bảng tính sẽ có trang "UngHoSach" với dòng tiêu đề.
+  4. Bấm Triển khai (Deploy) → Tùy chọn triển khai mới → biểu tượng ⚙ chọn "Ứng dụng web":
+       - Thực thi với tư cách: Tôi
+       - Người có quyền truy cập: Bất kỳ ai
+     → Triển khai → SAO CHÉP "URL ứng dụng web" (dạng https://script.google.com/macros/s/…/exec).
+  5. Mở index.html bằng Notepad, tìm dòng:   const URL_GUI = "";
+     dán URL vào giữa hai dấu nháy, ví dụ:   const URL_GUI = "https://script.google.com/macros/s/AKfy…/exec";
+     → Lưu. (Khi URL_GUI còn trống, trang chạy CHẾ ĐỘ THỬ: chỉ lưu trên máy đang mở.)
+
+B. ĐĂNG TRANG LÊN MẠNG (GitHub Pages)
+  1. Tạo repository mới, ví dụ "ung-ho-sach" → Add file → Upload files → kéo 2 tệp index.html và logo.png → Commit.
+     (KHÔNG cần tải apps-script.gs và tệp hướng dẫn.)
+  2. Settings → Pages → Branch: main, / (root) → Save.
+  3. Sau 1–2 phút trang có ở: https://tuananhhusk0.github.io/ung-ho-sach/
+     → gửi đường link (hoặc in mã QR của link) cho học sinh, phụ huynh.
+  4. Trong app Thư viện LTV: Dữ liệu & Cài đặt → ô "Địa chỉ trang ủng hộ sách" → dán đúng link trên → Lưu.
+     Nhờ vậy mã QR trên nhãn sách mở được trang "lời trao gửi" khi quét bằng điện thoại.
+
+C. ĐƯA DỮ LIỆU VÀO APP THƯ VIỆN
+  1. Mở Google Sheet → Tệp → Tải xuống → Microsoft Excel (.xlsx).
+  2. App Thư viện LTV → mục "🎁 Sách ủng hộ" → "Nhập từ Google Sheet" → chọn tệp vừa tải.
+     Nhập lại nhiều lần cũng không bị trùng (nhận diện theo Mã ủng hộ).
+  3. Ngày nhận sách: tìm người ủng hộ → "Nhận sách" → kiểm tra tên sách, chọn môn loại → Lưu.
+     Sách được thêm vào kho, mỗi cuốn một số ĐKCB, nguồn ghi "Ủng hộ: tên người tặng".
+  4. "In nhãn trao gửi" → in ra giấy decal → dán vào bìa trong của sách.
+     Quét QR trên nhãn bằng điện thoại: mở lời trao gửi. Quét bằng app thư viện: tự nhận mã ĐKCB để mượn/trả.
+
+Lưu ý bảo mật: số điện thoại, địa chỉ chỉ nằm trong Google Sheet của thầy và app trên máy – không in lên nhãn,
+không hiện trên trang web. Người ủng hộ bỏ chọn "Hiện tên" thì nhãn ghi "Một người bạn".
